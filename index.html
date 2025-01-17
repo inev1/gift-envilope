@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Åpne Gaven</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .envelope {
+            width: 200px;
+            height: 150px;
+            background: url('konvolutt-lukket.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            transition: transform 1s ease-in-out;
+        }
+
+        .opened .envelope {
+            transform: rotateX(90deg);
+            background: url('konvolutt-apnet.png') no-repeat center center;
+        }
+
+        .gift {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .opened .gift {
+            display: block;
+            background: url('gave.png') no-repeat center center;
+            background-size: contain;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope" onclick="openEnvelope()"></div>
+        <div class="gift">Gratulerer med gaven!</div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            const container = document.querySelector('.container');
+            container.classList.add('opened');
+        }
+    </script>
+</body>
+</html>
